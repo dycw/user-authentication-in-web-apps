@@ -5,7 +5,7 @@ import { fileURLToPath } from "url";
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
 
-const publicKey = fs.readFileSync(__dirname + "/id_rsa_pub.pem", "utf8");
+const publicKey = fs.readFileSync(`${__dirname}/id_rsa_pub.pem`, "utf8");
 
 const encryptedMessage = encryptWithPublicKey(
   publicKey,
@@ -14,7 +14,7 @@ const encryptedMessage = encryptWithPublicKey(
 
 console.log(`encryptedMessage.toString() = ${encryptedMessage.toString()}`);
 
-const privateKey = fs.readFileSync(__dirname + "/id_rsa_priv.pem", "utf8");
+const privateKey = fs.readFileSync(`${__dirname}/id_rsa_priv.pem`, "utf8");
 
 const decryptedMessage = decryptWithPrivateKey(privateKey, encryptedMessage);
 
